@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.image2-ui/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+public/assets/*.alpha.png
+public/assets/*.preview.png

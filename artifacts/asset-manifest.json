@@ -1,0 +1,42 @@
+{
+  "reference": "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-fbcc4c23-9e44-4e79-b341-1e8ad965d710.png",
+  "channel": "native-image2 source=system-imagegen",
+  "assets": [
+    {
+      "id": "ip-character",
+      "path": "public/assets/ip-character.png",
+      "type": "foreground-cutout",
+      "dimensions": "1402x1122",
+      "slot": "205x176 CSS px at 390px viewport",
+      "transparent": true,
+      "alt": "粉色布拉币角色"
+    },
+    {
+      "id": "coin-pink",
+      "path": "public/assets/coin-pink.png",
+      "type": "object-thumbnail",
+      "dimensions": "1254x1254",
+      "slot": "35x35 / 33x33 CSS px",
+      "transparent": true,
+      "alt": "布拉币"
+    },
+    {
+      "id": "coin-gray",
+      "path": "public/assets/coin-gray.png",
+      "type": "object-thumbnail",
+      "dimensions": "1254x1254",
+      "slot": "35x35 CSS px",
+      "transparent": true,
+      "alt": "未完成布拉币"
+    },
+    {
+      "id": "star-yellow",
+      "path": "public/assets/star-yellow.png",
+      "type": "foreground-cutout",
+      "dimensions": "1254x1254",
+      "slot": "58x65 / 43x50 CSS px",
+      "transparent": true,
+      "alt": "decorative"
+    }
+  ]
+}
