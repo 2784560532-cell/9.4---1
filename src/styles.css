@@ -39,7 +39,6 @@ button:focus-visible { outline: 3px solid rgba(255, 59, 124, .3); outline-offset
   position: relative;
   width: 100%;
   max-width: 390px;
-  min-height: 100vh;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 28px 28px 0 0;
@@ -215,7 +214,7 @@ button:focus-visible { outline: 3px solid rgba(255, 59, 124, .3); outline-offset
 .cycle-test-button:active { transform: scale(.98); }
 .spin { animation: spin .72s linear infinite; }
 
-.tasks-card { margin-top: 18px; min-height: 580px; padding: 21px 17px 30px; }
+.tasks-card { margin-top: 18px; padding: 21px 17px 30px; }
 .tasks-header { position: relative; height: 25px; display: flex; justify-content: space-between; align-items: flex-start; }
 .tasks-header h2 { margin: 0; font-size: 20px; line-height: 1; font-weight: 700; letter-spacing: -1px; }
 .tasks-header h2::first-letter { color: #84163b; }
@@ -279,7 +278,7 @@ button:focus-visible { outline: 3px solid rgba(255, 59, 124, .3); outline-offset
 
 @media (min-width: 431px) {
   body { padding-block: 20px; }
-  .phone-shell { min-height: calc(100vh - 40px); border-radius: 30px; box-shadow: 0 20px 70px rgba(0,0,0,.35); }
+  .phone-shell { border-radius: 30px; box-shadow: 0 20px 70px rgba(0,0,0,.35); }
 }
 
 @media (prefers-reduced-motion: reduce) {
