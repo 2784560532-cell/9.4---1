@@ -4,11 +4,12 @@ import {
   CellSignalFull,
   Check,
   CircleNotch,
+  Clock,
   LockSimple,
   WifiHigh,
 } from '@phosphor-icons/react'
 
-type IconName = 'back' | 'next' | 'signal' | 'wifi' | 'check' | 'lock' | 'spinner'
+type IconName = 'back' | 'next' | 'signal' | 'wifi' | 'check' | 'lock' | 'spinner' | 'clock'
 
 const icons = {
   back: CaretLeft,
@@ -16,6 +17,7 @@ const icons = {
   signal: CellSignalFull,
   wifi: WifiHigh,
   check: Check,
+  clock: Clock,
   lock: LockSimple,
   spinner: CircleNotch,
 } as const

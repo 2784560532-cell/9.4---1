@@ -295,8 +295,25 @@ function NotificationIntroModal({ time, requesting, onCancel, onContinue }: { ti
 }
 
 function TimePickerSheet({ initialTime, onCancel, onSave }: { initialTime: string; onCancel: () => void; onSave: (time: string) => void }) {
-  const [draft, setDraft] = useState(initialTime)
-  return <div className="sheet-backdrop" role="presentation" onMouseDown={onCancel}><section className="time-sheet" role="dialog" aria-modal="true" aria-labelledby="time-sheet-title" onMouseDown={(event) => event.stopPropagation()}><div className="sheet-handle" /><div className="sheet-header"><button type="button" onClick={onCancel}>取消</button><h2 id="time-sheet-title">提醒时间</h2><button type="button" className="save" onClick={() => onSave(draft)}>保存</button></div><label className="time-input-wrap"><span>每天</span><input autoFocus type="time" step="60" value={draft} onInput={(event) => setDraft(event.currentTarget.value)} aria-label="选择每天提醒时间" /></label><p>仅保存网页原型中的提醒时间设置</p></section></div>
+  const [initialHour, initialMinute] = initialTime.split(':')
+  const [hour, setHour] = useState(initialHour)
+  const [minute, setMinute] = useState(initialMinute)
+  const [pickerOpen, setPickerOpen] = useState(false)
+  const hourRef = useRef<HTMLDivElement | null>(null)
+  const minuteRef = useRef<HTMLDivElement | null>(null)
+  const hours = Array.from({ length: 24 }, (_, index) => String(index).padStart(2, '0'))
+  const minutes = Array.from({ length: 60 }, (_, index) => String(index).padStart(2, '0'))
+
+  useEffect(() => {
+    if (!pickerOpen) return
+    const frame = window.requestAnimationFrame(() => {
+      hourRef.current?.querySelector<HTMLElement>('[aria-selected="true"]')?.scrollIntoView({ block: 'center' })
+      minuteRef.current?.querySelector<HTMLElement>('[aria-selected="true"]')?.scrollIntoView({ block: 'center' })
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [pickerOpen])
+
+  return <div className="sheet-backdrop" role="presentation" onMouseDown={onCancel}><section className="time-sheet" role="dialog" aria-modal="true" aria-labelledby="time-sheet-title" onMouseDown={(event) => event.stopPropagation()}><div className="sheet-handle" /><div className="sheet-header"><button type="button" onClick={onCancel}>取消</button><h2 id="time-sheet-title">提醒时间</h2><button type="button" className="save" onClick={() => onSave(`${hour}:${minute}`)}>保存</button></div><div className="time-input-wrap"><span>每天</span><div className="time-input-anchor"><button type="button" className="time-input-control" aria-label={`选择提醒时间，当前 ${hour}:${minute}`} aria-expanded={pickerOpen} onClick={() => setPickerOpen((open) => !open)}><strong>{hour}:{minute}</strong><UiIcon name="clock" size={20} weight="bold" /></button>{pickerOpen && <div className="time-popover" role="group" aria-label="选择小时和分钟"><div ref={hourRef} className="time-option-column" role="listbox" aria-label="小时">{hours.map((value) => <button type="button" role="option" aria-selected={hour === value} className={hour === value ? 'is-selected' : ''} key={value} onClick={() => setHour(value)}>{value}</button>)}</div><span className="time-option-colon" aria-hidden="true">:</span><div ref={minuteRef} className="time-option-column" role="listbox" aria-label="分钟">{minutes.map((value) => <button type="button" role="option" aria-selected={minute === value} className={minute === value ? 'is-selected' : ''} key={value} onClick={() => setMinute(value)}>{value}</button>)}</div></div>}</div></div><p>仅保存网页原型中的提醒时间设置</p></section></div>
 }
 
 export default function App() {
