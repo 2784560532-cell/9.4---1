@@ -214,7 +214,7 @@ button:focus-visible { outline: 3px solid rgba(255, 59, 124, .3); outline-offset
 .cycle-test-button:active { transform: scale(.98); }
 .spin { animation: spin .72s linear infinite; }
 
-.tasks-card { margin-top: 18px; padding: 21px 17px 30px; }
+.tasks-card { margin-top: 12px; padding: 21px 17px 30px; }
 .tasks-header { position: relative; height: 25px; display: flex; justify-content: space-between; align-items: flex-start; }
 .tasks-header h2 { margin: 0; font-size: 20px; line-height: 1; font-weight: 700; letter-spacing: -1px; }
 .tasks-header h2::first-letter { color: #84163b; }
